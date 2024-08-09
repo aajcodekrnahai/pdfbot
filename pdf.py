@@ -14,7 +14,7 @@ iLovePDF = '''
                          ❤ Email: nabilanavab@gmail.com
                          ❤ Telegram: @nabilanavab
 '''
-
+from flask import Flask
 import asyncio, os, shutil
 from configs.db            import *
 from logger                import logger
@@ -29,6 +29,9 @@ from configs.config        import bot, settings, images
 from pyrogram.types        import (
                                InlineKeyboardButton, InlineKeyboardMarkup, BotCommand
                            )
+
+# Initialize Flask
+flask_app = Flask(__name__)
 
 if dataBASE.MONGODB_URI:
     from database import db
@@ -204,7 +207,7 @@ if __name__ == "__main__":
     
     pyTgLovePDF.polling()
     app = Bot()
-    app.run()
-
+  flask_app.run()
+    
 #                                                                                                                                       OPEN SOURCE TELEGRAM PDF BOT 🐍
 #                                                                                                                                            by: nabilanavab [iLovePDF]
