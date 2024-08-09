@@ -11,4 +11,4 @@ RUN apt install -y wkhtmltopdf
 
 COPY . .
 
-CMD python3 pdf.py
+CMD flask run -h 0.0.0.0 -p 8000 & python3 pdf.py
